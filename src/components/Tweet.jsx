@@ -1,9 +1,10 @@
 import ProfileImage from "./ProfileImage";
 import User from "./User";
 import Timestamp from "./Timestamp";
+import Message from "./Message";
+import Actions from "./Actions";
 
 function Tweet(props) {
-  const { tweet } = props;
   return (
     <>
       {props.tweet.map((prop, index) => (
@@ -16,6 +17,10 @@ function Tweet(props) {
 
               <Timestamp time={prop.timestamp} />
             </div>
+
+            <Message message={prop.message} />
+
+            <Actions />
           </div>
         </div>
       ))}
