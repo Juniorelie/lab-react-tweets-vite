@@ -1,13 +1,26 @@
-function Tweet() {
-  return (
-    <div className="tweet">
-      <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
-        className="profile"
-        alt="profile"
-      />
+import ProfileImage from "./ProfileImage";
+import User from "./User";
+import Timestamp from "./Timestamp";
 
-      <div className="body">
+function Tweet(props) {
+  const { tweet } = props;
+  return (
+    <>
+      {props.tweet.map((prop, index) => (
+        <div key={index} className="tweet">
+          <ProfileImage image={prop.user.image} />
+
+          <div className="body">
+            <div className="top">
+              <User name={prop.user.name} handle={prop.user.handle} />
+
+              <Timestamp time={prop.timestamp} />
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* <div className="body">
         <div className="top">
           <span className="user">
             <span className="name">Ironhack</span>
@@ -23,7 +36,7 @@ function Tweet() {
         </p>
 
         <div className="actions">
-          {/* Font Awesome icons */}
+          {/* Font Awesome icons *}
           <i className="far fa-comment" data-testid="comment-icon"></i>
           <i className="fas fa-retweet" data-testid="retweet-icon"></i>
           <i className="far fa-heart" data-testid="heart-icon"></i>
@@ -31,8 +44,8 @@ function Tweet() {
         </div>
       </div>
 
-      <i className="fas fa-ellipsis-h"></i>
-    </div>
+      <i className="fas fa-ellipsis-h"></i> */}
+    </>
   );
 }
 
